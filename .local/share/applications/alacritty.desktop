@@ -2,7 +2,7 @@
 Type=Application
 TryExec=alacritty
 Exec=alacritty
-Icon=Alacritty
+Icon=alacritty
 Terminal=false
 Categories=System;TerminalEmulator;
 

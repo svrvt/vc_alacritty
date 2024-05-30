@@ -6,3 +6,4 @@
 !/.config/alacritty/gruvbox_material.toml
 !/.gitignore.d/vc_alacritty
 !/.local/share/applications/alacritty.desktop
+!/.local/share/icons/alacritty.png
