@@ -1,0 +1,8 @@
+*
+!/.config/alacritty/alacritty.toml
+!/.config/alacritty/font2.toml
+!/.config/alacritty/font3.toml
+!/.config/alacritty/gruvbox_dark.toml
+!/.config/alacritty/gruvbox_material.toml
+!/.gitignore.d/vc_alacritty
+!/.local/share/applications/alacritty.desktop
