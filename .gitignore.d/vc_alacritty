@@ -6,6 +6,9 @@
 !/.config/alacritty/font3.toml
 !/.config/alacritty/gruvbox_dark.toml
 !/.config/alacritty/gruvbox_material.toml
+!/.config/mr
+!/.config/mr/available.d
+!/.config/mr/available.d/vc_alacritty
 !/.gitignore.d
 !/.gitignore.d/vc_alacritty
 !/.local
