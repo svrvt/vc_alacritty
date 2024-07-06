@@ -1,9 +1,16 @@
 *
+!/.config
+!/.config/alacritty
 !/.config/alacritty/alacritty.toml
 !/.config/alacritty/font2.toml
 !/.config/alacritty/font3.toml
 !/.config/alacritty/gruvbox_dark.toml
 !/.config/alacritty/gruvbox_material.toml
+!/.gitignore.d
 !/.gitignore.d/vc_alacritty
+!/.local
+!/.local/share
+!/.local/share/applications
 !/.local/share/applications/alacritty.desktop
+!/.local/share/icons
 !/.local/share/icons/alacritty.png
