@@ -8,7 +8,8 @@
 !/.config/alacritty/gruvbox_material.toml
 !/.config/mr
 !/.config/mr/available.d
-!/.config/mr/available.d/vc_alacritty
+!/.config/mr/available.d/vc
+!/.config/mr/available.d/vc/vc_alacritty
 !/.gitignore.d
 !/.gitignore.d/vc_alacritty
 !/.local
