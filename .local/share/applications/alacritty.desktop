@@ -4,14 +4,21 @@ TryExec=alacritty
 Exec=alacritty
 Icon=alacritty
 Terminal=false
-Categories=System;TerminalEmulator;
+Categories=GTK;System;TerminalEmulator;
 
 Name=Alacritty
 GenericName=Terminal
 Comment=A fast, cross-platform, OpenGL terminal emulator
+StartupNotify=true
 StartupWMClass=Alacritty
-Actions=New;
+Keywords=shell;prompt;command;commandline;cmd
+Actions=new-window;
+X-Ubuntu-Gettext-Domain=gnome-terminal
 
-[Desktop Action New]
-Name=New Terminal
-Exec=alacritty
+Hidden=false
+
+OnlyShowIn=Cinnamon;GNOME;KDE;MATE;Unity;XFCE;
+
+[Desktop Action new-window]
+Exec=alacritty msg create-window
+Name=New Window
