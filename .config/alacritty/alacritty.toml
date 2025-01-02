@@ -1,6 +1,6 @@
 import = [
-  "/home/ru/.config/alacritty/gruvbox_material.toml",
-  # "/home/ru/.config/alacritty/gruvbox_dark.toml",
+  # "/home/ru/.config/alacritty/gruvbox_material.toml",
+  "/home/ru/.config/alacritty/gruvbox_dark.toml",
 
   "/home/ru/.config/alacritty/font2.toml"
   # "/home/ru/.config/alacritty/font3.toml"
@@ -55,7 +55,7 @@ semantic_escape_chars = ",│`|:\"' ()[]{}<>"
 
 [window]
 dynamic_title = true
-opacity = 0.95
+opacity = 0.75
 
 [window.padding]
 x = 4
