@@ -1,0 +1,78 @@
+#!/bin/bash
+
+conf="$HOME/.config/alacritty/alacritty.toml"
+them_dir="$HOME/.config/alacritty/themes/themes"
+old_lines=()
+
+# Функция для замены строк
+replace_lines() {
+    sed -i "/import = \[/{
+        n; s|.*|    \"$1\",|;
+        n; s|.*|    \"\"\"$2\"\"\"|;
+    }" "$conf"
+}
+
+# Функция для восстановления строк
+restore_lines() {
+    sed -i "/import = \[/{
+        n; s|.*|$1|;
+        n; s|.*|$2|;
+    }" "$conf"
+}
+
+# Получаем список тем
+themes=("$(command ls "$them_dir"/*.toml | xargs -n 1 basename | cut -d '.' -f 1)")
+
+# Интерактивный выбор темы
+while true; do
+    clear
+    echo "Выберите тему (нажмите <Tab> для навигации):"
+    
+    for i in "${!themes[@]}"; do
+        if [[ "$i" == "$selected" ]]; then
+            echo "> ${themes[$i]}"
+        else
+            echo "  ${themes[$i]}"
+        fi
+    done
+
+    read -rsn1 key  # Читаем один символ
+
+    case "$key" in
+        $'\t')  # Обработка <Tab>
+            ((selected++))
+            if (( selected >= ${#themes[@]} )); then
+                selected=0
+            fi
+            ;;
+        $'\e')  # Обработка стрелок (ESC)
+            read -rsn2 key  # Читаем два символа (ESC[)
+            case "$key" in
+                '[A')  # Стрелка вверх
+                    ((selected--))
+                    if (( selected < 0 )); then
+                        selected=$((${#themes[@]} - 1))
+                    fi
+                    ;;
+                '[B')  # Стрелка вниз
+                    ((selected++))
+                    if (( selected >= ${#themes[@]} )); then
+                        selected=0
+                    fi
+                    ;;
+            esac
+            ;;
+        '')  # Обработка <Return>
+            theme_file="$them_dir/${themes[$selected]}.toml"
+            old_lines=("$(sed -n "/import = \[/ {n; p; n; p;}" "$conf")")
+            replace_lines "${theme_file}" "${themes[$selected]}"
+            echo "Тема '${themes[$selected]}' добавлена."
+            break
+            ;;
+        $'\x03')  # Обработка <Ctrl-C>
+            restore_lines "${old_lines[0]}" "${old_lines[1]}"
+            echo "Изменения отменены."
+            break
+            ;;
+    esac
+done

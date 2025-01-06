@@ -1,0 +1,22 @@
+#!/bin/bash
+
+conf="$HOME/.config/alacritty/alacritty.toml"
+them_dir="$HOME/.config/alacritty/themes/themes"
+
+# Получаем список тем
+themes=("$(command ls "$them_dir"/*.toml | xargs -n 1 basename | cut -d '.' -f 1)")
+
+# Используем fzf для выбора темы
+selected_theme=$(printf "%s\n" "${themes[@]}" | fzf --height 40% --reverse --preview "cat $them_dir/{}.toml")
+
+if [ -n "$selected_theme" ]; then
+    theme_file="$them_dir/${selected_theme}.toml"
+    old_lines=("$(sed -n "/import = \[/ {n; p; n; p;}" "$conf")")
+    sed -i "/import = \[/{
+          n; s|.*|  ### see '$0'|;
+          n; s|.*|  \"$theme_file\",|;
+    }" "$conf"
+    echo "Тема '$selected_theme' добавлена."
+else
+    echo "Выбор отменён."
+fi

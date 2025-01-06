@@ -2,6 +2,9 @@
 !/bin
 !/bin/alacritty
 !/bin/alacritty/alctm
+!/bin/alacritty/alctm_3
+!/bin/alacritty/alctm_feat
+!/bin/alacritty/alctm_fzf
 !/.config
 !/.config/alacritty
 !/.config/alacritty/alacritty.toml

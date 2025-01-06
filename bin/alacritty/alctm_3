@@ -1,0 +1,42 @@
+#!/bin/bash
+
+conf="$HOME/.config/alacritty/alacritty.toml"
+them_dir="$HOME/.config/alacritty/themes/themes"
+
+# Функция для замены строк
+replace_lines() {
+    sed -i "/import = \[/{
+        n; s|.*|  ### see '$0'|;
+        n; s|.*|  \"$1\",|;
+    }" "$conf"
+}
+
+if [ $# -gt 0 ]; then
+    theme_file="$them_dir/$1.toml"
+
+    if [[ -f "$theme_file" ]]; then
+        echo "Theme file exists: $theme_file"
+        old_lines=($(sed -n "/import = \[/ {n; p; n; p;}" "$conf"))
+        replace_lines "$theme_file"
+        echo "Тема '$1' добавлена."
+    else
+        echo "Theme file does not exist."
+        exit 1
+    fi
+else
+    # Получаем список тем
+    themes=($(ls "$them_dir"/*.toml | xargs -n 1 basename | cut -d '.' -f 1))
+
+    # Используем fzf для выбора темы
+    selected_theme=$(printf "%s\n" "${themes[@]}" | fzf --height 40% --reverse --preview "cat $them_dir/{}.toml")
+
+    if [ -n "$selected_theme" ]; then
+        theme_file="$them_dir/${selected_theme}.toml"
+        old_lines=($(sed -n "/import = \[/ {n; p; n; p;}" "$conf"))
+        replace_lines "$theme_file"
+        echo "Тема '$selected_theme' добавлена."
+    else
+        echo "Выбор отменён."
+    fi
+fi
+
