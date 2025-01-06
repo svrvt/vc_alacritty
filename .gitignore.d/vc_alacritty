@@ -1,4 +1,7 @@
 *
+!/bin
+!/bin/alacritty
+!/bin/alacritty/alctm
 !/.config
 !/.config/alacritty
 !/.config/alacritty/alacritty.toml

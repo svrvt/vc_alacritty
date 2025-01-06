@@ -1,0 +1,26 @@
+#!/bin/bash
+
+conf="$HOME/.config/alacritty/alacritty.toml"
+them_dir="$HOME/.config/alacritty/themes/themes"
+
+if [ $# -gt 0 ]; then
+    theme_file="$them_dir/$1.toml"
+
+    if [[ -f "$theme_file" ]]; then
+        echo "Theme file exists: $theme_file"
+
+        sed -i "/import = \[/{
+          n; s|.*|  ### see '$0'|;
+          n; s|.*|  \"$theme_file\",|;
+        }" "$conf"
+
+        echo "Theme added to $conf"
+    else
+        echo "Theme file does not exist."
+        exit 1
+    fi
+else
+    echo "No theme specified."
+    exit 1
+fi
+
