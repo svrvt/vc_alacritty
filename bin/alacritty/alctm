@@ -20,6 +20,7 @@ if [ $# -gt 0 ]; then
         exit 1
     fi
 else
+    # plst="$(command ls "$HOME"/.config/alacritty/themes/themes | cut -d '.' -f 1 | fzf)"
     echo "No theme specified."
     exit 1
 fi

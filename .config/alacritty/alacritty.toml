@@ -57,7 +57,7 @@ y = 2
 live_config_reload = true
 import = [
   ### see '/home/ru/bin/alacritty/alctm'
-  "/home/ru/.config/alacritty/themes/themes/autumn.toml",
+  "/home/ru/.config/alacritty/themes/themes/gruvbox_material.toml",
 
   "/home/ru/.config/alacritty/font2.toml"
   # "/home/ru/.config/alacritty/font3.toml"
