@@ -46,7 +46,7 @@ semantic_escape_chars = ",│`|:\"' ()[]{}<>"
 
 [window]
 dynamic_title = true
-opacity = 0.75
+opacity = 0.85
 
 [window.padding]
 x = 4
