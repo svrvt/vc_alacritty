@@ -15,8 +15,7 @@
 !/.config/alacritty/themes
 !/.config/mr
 !/.config/mr/available.d
-!/.config/mr/available.d/vc
-!/.config/mr/available.d/vc/vc_alacritty
+!/.config/mr/available.d/workflow.vc.alacritty
 !/.gitignore.d
 !/.gitignore.d/vc_alacritty
 !/.gitmodules.d
