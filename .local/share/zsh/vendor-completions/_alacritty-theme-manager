@@ -1,4 +1,4 @@
-#compdef alctm
+#compdef alacritty-theme-manager
 typeset -A opt_args
 
 typeset -A opt_args

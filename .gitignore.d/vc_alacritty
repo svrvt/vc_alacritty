@@ -1,10 +1,11 @@
 *
 !/bin
 !/bin/alacritty
-!/bin/alacritty/alctm
 !/bin/alacritty/alctm_3
 !/bin/alacritty/alctm_feat
 !/bin/alacritty/alctm_fzf
+!/bin/desktop
+!/bin/desktop/alacritty-theme-manager
 !/.config
 !/.config/alacritty
 !/.config/alacritty/alacritty.toml
@@ -28,4 +29,4 @@
 !/.local/share/icons/alacritty.png
 !/.local/share/zsh
 !/.local/share/zsh/vendor-completions
-!/.local/share/zsh/vendor-completions/_alctm
+!/.local/share/zsh/vendor-completions/_alacritty-theme-manager
