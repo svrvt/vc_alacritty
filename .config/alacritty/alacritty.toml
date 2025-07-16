@@ -1,6 +1,14 @@
-[cursor.style]
-shape = "Beam"
-blinking = "On"
+[general]
+live_config_reload = true
+import = [
+  ### see '/home/ru/bin/alacritty-theme-set'
+  "/home/ru/.config/alacritty/themes/themes/gruvbox_material.toml",
+  "~/.config/alacritty/keybindings.toml",
+  "~/.config/alacritty/fonts/Roboto.toml"
+]
+
+[terminal]
+osc52 = "Disabled" #"Disabled" | "OnlyCopy" | "OnlyPaste" | "CopyPaste"
 
 [env]
 TERM = "xterm-256color"
@@ -9,34 +17,19 @@ TERMINAL= "alacritty"
 [font]
 size = 12.0
 
-[[keyboard.bindings]]
-action = "Paste"
-key = "V"
-mods = "Control|Shift"
+[mouse]
+hide_when_typing = true
 
-[[keyboard.bindings]]
-action = "Copy"
-key = "C"
-mods = "Control|Shift"
+[window]
+dynamic_title = true
+opacity = 0.85
+decorations = "None"
+resize_increments = false
+#dynamic_padding = true
 
-[[keyboard.bindings]]
-action = "ResetFontSize"
-key = "Key0"
-mods = "Control"
-
-[[keyboard.bindings]]
-action = "IncreaseFontSize"
-key = "Equals"
-mods = "Control"
-
-[[keyboard.bindings]]
-action = "DecreaseFontSize"
-key = "Minus"
-mods = "Control"
-
-[selection]
-save_to_clipboard = true
-semantic_escape_chars = ",│`|:\"' ()[]{}<>"
+[window.padding]
+x = 4
+y = 2
 
 # [shell]
 # args = ["new-session", "-A", "-s", "main"]
@@ -44,21 +37,29 @@ semantic_escape_chars = ",│`|:\"' ()[]{}<>"
 # args = ["--login"]
 # program = "/usr/bin/zsh"
 
-[window]
-dynamic_title = true
-opacity = 0.85
+[cursor]
+blink_interval = 150
+blink_timeout = 3
+thickness = 0.1
 
-[window.padding]
-x = 4
-y = 2
+[cursor.style]
+shape = "Beam"
+blinking = "On"
 
-[general]
+[cursor.vi_mode_style]
+shape = "Block"
+blinking = "Off"
+[selection]
+save_to_clipboard = true
+semantic_escape_chars = ",│`|:\"' ()[]{}<>"
 
-live_config_reload = true
-import = [
-  ### see '/home/ru/bin/alacritty/alctm'
-  "/home/ru/.config/alacritty/themes/themes/gruvbox_material.toml",
-
-  "/home/ru/.config/alacritty/font2.toml"
-  # "/home/ru/.config/alacritty/font3.toml"
-]
+[[hints.enabled]]
+command = "xdg-open" # On Linux/BSD
+# command = "open" # On macOS
+# command = { program = "cmd", args = [ "/c", "start", "" ] } # On Windows
+hyperlinks = true
+post_processing = true
+persist = false
+mouse.enabled = true
+binding = { key = "O", mods = "Control|Shift" }
+regex = "(ipfs:|ipns:|magnet:|mailto:|gemini://|gopher://|https://|http://|news:|file:|git://|ssh:|ftp://)[^\u0000-\u001F\u007F-\u009F<>\"\\s{-}\\^⟨⟩`\\\\]+"

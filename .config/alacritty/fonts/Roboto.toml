@@ -1,18 +1,18 @@
+[font.normal]
+family = "Roboto Mono Nerd Font"
+style = "Regular"
+
 [font.bold]
 family = "Roboto Mono Nerd Font"
-style = "Bold"
-
-[font.glyph_offset]
-x = 0
-y = 0
+style = "Medium"
 
 [font.italic]
 family = "Roboto Mono Nerd Font"
 style = "Italic"
 
-[font.normal]
-family = "Roboto Mono Nerd Font"
-style = "Medium"
+[font.glyph_offset]
+x = 0
+y = 0
 
 [font.offset]
 x = 0

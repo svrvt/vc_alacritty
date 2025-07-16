@@ -5,10 +5,9 @@
 !/.config
 !/.config/alacritty
 !/.config/alacritty/alacritty.toml
-!/.config/alacritty/font2.toml
-!/.config/alacritty/font3.toml
-!/.config/alacritty/gruvbox_dark.toml
-!/.config/alacritty/gruvbox_material.toml
+!/.config/alacritty/fonts
+!/.config/alacritty/fonts/JetBrains.toml
+!/.config/alacritty/fonts/Roboto.toml
 !/.config/alacritty/themes
 !/.config/mr
 !/.config/mr/available.d
